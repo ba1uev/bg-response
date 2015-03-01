@@ -1,0 +1,70 @@
+body {
+	font-family: courier new;
+	margin: 0;
+	padding: 0;
+}
+
+#cont {
+	width: 500px;
+	height: 300px;
+	position: relative;
+	margin: 100px auto;
+	background: #CFCFCF;
+}
+
+#center {
+	width: 10px;
+	height: 10px;
+	line-height: 10px;
+	font-size: 8px;
+	text-align: center;
+	top: 0;
+	left: 0;
+	position: absolute;
+	background: black;
+	color: white;
+}
+
+.indicator {
+	height: 15px;
+	line-height: 15px;
+	position: fixed;
+	right: 10px;
+	display: block;
+	border: 1px solid black;
+	color: black;
+	text-align: center;
+	font-family: courier new;
+	font-size: 14px;
+	cursor: default;
+}
+.indicator:focus {
+	outline: none;
+}
+
+#mouse-xy {
+	top: 10px;
+	width: 100px;
+	background: #FFDDE4;
+	border-color: #CF172A;
+	color: #CF172A;
+}
+
+#center-dist {
+	top: 35px;
+	width: 60px;
+	border-color: #0D829A;
+	color: #0D829A;
+	background: #ADEBF7;
+}
+
+
+
+#test {
+	top: 0;
+	left: 0;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background: yellow;
+}
