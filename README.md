@@ -1,1 +1,6 @@
-#background respond to cursor movement
+###background respond to cursor movement
+	+ + + + +
+	+ + + + +
+	+ + + + +
+	+ + + + +
+	+ + + + +
