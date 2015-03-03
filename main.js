@@ -50,6 +50,13 @@ cont.css({'width': bgWidth,
 		  'left': bgLeft});
 
 
+//----------- generate +++ bg ------------
+
+
+
+//----------------------------------------
+
+
 var vector = [];
 var bgPosTop;
 var bgPosLeft;
@@ -66,8 +73,8 @@ document.onmousemove = function(e){
 	bgPosLeft = parseInt(cont.css('left'));
 	bgPosBar.value = bgPosTop+' / '+bgPosLeft;
 
-	cont.css('top', bgTop - vector[1]);
-	cont.css('left', bgLeft - vector[0]);
+	cont.css('top', bgTop - vector[1]/2);
+	cont.css('left', bgLeft - vector[0]/2);
 }
 
 
