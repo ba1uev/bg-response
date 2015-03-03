@@ -2,14 +2,15 @@ body {
 	font-family: courier new;
 	margin: 0;
 	padding: 0;
+	overflow: hidden;
 }
 
 #cont {
-	width: 500px;
-	height: 300px;
-	position: relative;
-	margin: 100px auto;
-	background: #CFCFCF;
+	position: absolute;
+	background-size: contain;
+	background-position: center center;
+	background: url(http://i071.radikal.ru/1002/9b/0ed3653c175f.jpg);
+	background-repeat: no-repeat;
 }
 
 #center {
@@ -37,6 +38,9 @@ body {
 	font-family: courier new;
 	font-size: 14px;
 	cursor: default;
+	opacity: .7;
+	text-align: right;
+	
 }
 .indicator:focus {
 	outline: none;
@@ -56,6 +60,14 @@ body {
 	border-color: #0D829A;
 	color: #0D829A;
 	background: #ADEBF7;
+}
+
+#bg-pos {
+	top: 60px;
+	width: 100px;
+	border-color: #E4DC1C;
+	color: black;
+	background: #FFFEAE;
 }
 
 
