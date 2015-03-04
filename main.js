@@ -87,7 +87,7 @@ document.onmousemove = function(e){
 	vector[1] = e.clientY-centerY;
 
 	mousePosBar.value = e.clientX + ' * ' + e.clientY;
-	centerDistBar.value = vector[0]+' / '+vector[1];
+	centerDistBar.value = vector[0]+' * '+vector[1];
 
 	// bgPosTop = parseInt(lay.css('top'));
 	// bgPosLeft = parseInt(lay.css('left'));
