@@ -1,65 +1,85 @@
-var x, y;
+// var x, y;
 
-function getWindowSize(){
-	x = $(document).width();
-	y = $(document).height();
-	return {
-		xx: x,
-		yy: y
-	};
-};
+// function getWindowSize(){
+// 	x = $(document).width();
+// 	y = $(document).height();
+// 	return {
+// 		xx: x,
+// 		yy: y
+// 	};
+// };
 
-$(window).on('load resize', getWindowSize);
+// $(window).on('load resize', getWindowSize);
 
-var getWindow = getWindowSize();
-var centerX = Math.ceil(getWindow.xx/2);
-var centerY = Math.ceil(getWindow.yy/2);
-
-
-var centerXPos, centerYPos;
-var center = $('#center');
-centerXPos = centerX - parseInt(center.css('width'))/2;
-centerYPos = centerY - parseInt(center.css('height'))/2;
-center.css({'top' : centerYPos, 'left' : centerXPos});
-
-
-
-
-var test = $('#test');
-var l;
-var cont = $('#cont');
+//-------- UI -------
 var mousePosBar = document.getElementById('mouse-xy');
 var centerDistBar = document.getElementById('center-dist');
 var bgPosBar = document.getElementById('bg-pos')
-var directionX = 1;
-var directionY = 1;
 
 
-var bgScale = 1;
-
-var bgWidth = Math.ceil(getWindow.xx + getWindow.xx * bgScale);
-var bgHeight = Math.ceil(getWindow.yy + getWindow.yy * bgScale);
-
-var bgTop = -Math.ceil((bgHeight - getWindow.yy)/2);
-var bgLeft = -Math.ceil((bgWidth - getWindow.xx)/2);
+//-------- input --------
+var layScale = .6;
 
 
-cont.css({'width': bgWidth,
-		  'height': bgHeight,
-		  'top': bgTop,
-		  'left': bgLeft});
+
+
+
+
+
+// ----------------------------------------
+
+var cont = $('#container');
+var lay = $('#lay');
+
+var contWidth = parseInt(cont.css('width'));
+var contHeight = parseInt(cont.css('height'));
+var contTop = parseInt(cont.offset().top);
+var contLeft = parseInt(cont.offset().left);
+
+// alert(contTop + ', ' + contLeft);
+
+var centerX = Math.ceil(contWidth/2) + contLeft;
+var centerY = Math.ceil(contHeight/2) + contTop;
+
+
+//---------- center point----------
+var centerXPos, centerYPos;
+var center = $('#center');
+centerXPos = centerX - contLeft - parseInt(center.css('width'))/2;
+centerYPos = centerY - contTop - parseInt(center.css('height'))/2;
+center.css({'top' : centerYPos, 'left' : centerXPos});
+//----------------------------------------
+
+// alert(centerX + ' ' + centerY);
+
+var layWidth = Math.ceil(contWidth + contWidth * layScale);
+var layHeight = Math.ceil(contHeight + contHeight * layScale);
+
+var layTop = -Math.ceil((layHeight - contHeight)/2);
+var layLeft = -Math.ceil((layWidth - contWidth)/2);
+
+
+lay.css({'width': layWidth,
+		  'height': layHeight,
+		  'top': layTop,
+		  'left': layLeft
+		});
 
 
 //----------- generate +++ bg ------------
 
-
+for (var i=0; i <= 4242; i++){
+	var elem = $('<div>').attr('class', 'wow');
+	elem.html('+');
+	$(elem).appendTo(lay);
+};
 
 //----------------------------------------
 
 
 var vector = [];
-var bgPosTop;
-var bgPosLeft;
+// var bgPosTop;
+// var bgPosLeft;
 
 document.onmousemove = function(e){
 	e = e || window.event;
@@ -69,12 +89,12 @@ document.onmousemove = function(e){
 	mousePosBar.value = e.clientX + ' * ' + e.clientY;
 	centerDistBar.value = vector[0]+' / '+vector[1];
 
-	bgPosTop = parseInt(cont.css('top'));
-	bgPosLeft = parseInt(cont.css('left'));
-	bgPosBar.value = bgPosTop+' / '+bgPosLeft;
+	// bgPosTop = parseInt(lay.css('top'));
+	// bgPosLeft = parseInt(lay.css('left'));
+	// bgPosBar.value = bgPosTop+' / '+bgPosLeft;
 
-	cont.css('top', bgTop - vector[1]/2);
-	cont.css('left', bgLeft - vector[0]/2);
+	lay.css('top', layTop - vector[1]/5);
+	lay.css('left', layLeft - vector[0]/5);
 }
 
 
